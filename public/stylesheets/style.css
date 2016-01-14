@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table.viewport{
+  border-spacing: 0px;
+}
+
+table.viewport td{
+  width: 100px;
+  height: 100px;
+}
+
+td.left, td.right{
+  border-left: thin black solid;
+  border-top: thin black solid;
+  margin: 0px;
+}
+
+td.right{
+  border-right: thin black solid;
+}
+
+td.top, td.bottom{
+  border-top: thin black solid;
+}
+
+td.bottom{
+  border-bottom: thin black solid;
+}

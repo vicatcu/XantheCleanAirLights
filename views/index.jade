@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  table.viewport
+    tr
+      td#eggcolor1.left.top &nbsp;
+      td#eggcolor2.right.top &nbsp;
+    tr
+      td#eggcolor3.left &nbsp;
+      td#eggcolor4.right &nbsp;
+    tr
+      td#eggcolor5.left.bottom &nbsp;
+      td#eggcolor6.right.bottom &nbsp;
+  hr
+  table.inputform
+    tr
+      td Egg #1:
+      td
+        input#egg1(type="text")
+    tr
+      td Egg #2:
+      td
+        input#egg2(type="text")
+    tr
+      td Egg #3:
+      td
+        input#egg3(type="text")
+    tr
+      td Egg #4:
+      td
+        input#egg4(type="text")
+    tr
+      td Egg #5:
+      td
+        input#egg5(type="text")
+    tr
+      td Egg #6:
+      td
+        input#egg6(type="text")
+    tr
+      td &nbsp;
+      td
+        input#start(type="button", value="Start Polling for Data")
+    tr
+      td &nbsp;
+      td
+        input#stop(type="button", value="Stop Polling for Data")
+
+    script(src="javascripts/polleggdata.js")
+
