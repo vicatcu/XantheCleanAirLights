@@ -18,10 +18,28 @@ module.exports = function(config) {
     // helper (actually workhorse) method that does a GET to a URL
     // it appends the augmented payloads in the response to the second argument that gets passed to it
     // if the response body JSON contains a next element it recursively calls itself
+    var getUntilNot400 = function(url){
+        var theUrl = url;
+        return Promise.try(function(){
+            return bhttp.get(theUrl, API_POST_OPTIONS);
+        }).then(function(response){
+            if(response.statusCode == 400){
+                console.log("Got 400, waiting 30 seconds before trying again");
+                return Promise.delay(30000).then(function(){
+                    return getUntilNot400(theUrl);
+                });
+            }
+            else{
+                return response;
+            }
+        });
+    };
+
+
     var recursiveGET = function(url, results, status, followNext){
         console.log("Current Num Results: " + results.length + " -> URL: " + url);
         return Promise.try(function(){
-            return bhttp.get(url, API_POST_OPTIONS);
+            return getUntilNot400(url);
         }).catch(function(err){
             console.error(err);
         }).then(function(response){
