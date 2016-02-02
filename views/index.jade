@@ -40,6 +40,15 @@ block content
       td
         input#egg6(type="text")
     tr
+      td ug/m^3
+      td
+        input#ugpm3_override(type="text")
+    tr
+      td(colspan="2")
+        input#slider_override(type="checkbox")
+        span Use Slider
+        div#slider
+    tr
       td &nbsp;
       td
         input#start(type="button", value="Start Polling for Data")
@@ -49,4 +58,3 @@ block content
         input#stop(type="button", value="Stop Polling for Data")
 
     script(src="javascripts/polleggdata.js")
-
