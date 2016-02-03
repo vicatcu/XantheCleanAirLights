@@ -21,12 +21,14 @@ $(function() {
         if(current_ugpm3 < min_ugpm3) current_ugpm3 = min_ugpm3;
         if(current_ugpm3 > max_ugpm3) current_ugpm3 = max_ugpm3;
 
-        var colorx_cie_min = 0.15;
-        var colorx_cie_max = 0.68;
+        var colorx_cie_min = 0.13791673;
+        var colorx_cie_max = 0.70235455;
         var colorx_cie_span = (colorx_cie_max - colorx_cie_min);
-        var colory_cie_min = 0.05;
-        var colory_cie_max = 0.30;
+        var colory_cie_min = 0.06569707;
+        var colory_cie_max = 0.2579223;
         var colory_cie_span = (colory_cie_max - colory_cie_min);
+
+
 
         var proportion_ugpm3 = (current_ugpm3 - min_ugpm3) / span_ugpm3;
 
@@ -135,4 +137,11 @@ $(function() {
         $("#eggcolor1").css('background-color', hexcolor);
       }
     });
+
+    for(var ii = 0; ii <= 60; ii+=5){
+        var hexcolor = convertUgpm3ToHexRGB(ii);
+        $("#pm"+ii).css('background-color', hexcolor);
+        $("#pm"+ii).css('color', "#FFFFFF");
+        $("#pm"+ii).css('text-align', "center");
+    }
 });
